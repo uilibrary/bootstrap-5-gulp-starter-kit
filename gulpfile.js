@@ -110,6 +110,16 @@ task("dev-copy-js-plugins", function () {
     dest(options.paths.dist.js)
   );
 });
+task("bootstrap-js-plugins", function () {
+  return src(["./node_modules/bootstrap/dist/js/bootstrap.min.js"]).pipe(
+    dest(options.paths.dist.js)
+  );
+});
+task("bootstrap-build-js-plugins", function () {
+  return src(["./node_modules/bootstrap/dist/js/bootstrap.min.js"]).pipe(
+    dest(options.paths.build.js)
+  );
+});
 
 task("build-copy-js-plugins", function () {
   return src([options.paths.src.js + "/plugins/**/*.js"]).pipe(
@@ -210,6 +220,7 @@ task(
     "dev-scripts",
     "dev-copy-js-plugins",
     "dev-copy-css-plugins",
+    "bootstrap-js-plugins",
     "dev-imgs",
     (done) => {
       console.log(
