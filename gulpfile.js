@@ -15,11 +15,11 @@ const markdown = require("gulp-markdown");
 const fileinclude = require("gulp-file-include");
 const cache = require("gulp-cache");
 
-class TailwindExtractor {
-  static extract(content) {
-    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
-  }
-}
+// class TailwindExtractor {
+//   static extract(content) {
+//     return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+//   }
+// }
 
 //Load Previews on Browser on dev
 task("livepreview", (done) => {
@@ -225,7 +225,6 @@ task(
   "optamizedBuild",
   series(
     "clean:build",
-    "bootstrap:scss",
     "build-html",
     "dev-styles",
     "build-styles",
